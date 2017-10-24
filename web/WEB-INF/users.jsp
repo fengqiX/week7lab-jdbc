@@ -7,6 +7,7 @@
         <title>Manage Users</title>
         <link rel="stylesheet" href="<c:url value='styles/notes.css' />" />
     </head>
+    
     <body>
         <h1>Manage Users</h1>
         <h2>Users</h2>
