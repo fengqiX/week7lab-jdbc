@@ -3,17 +3,11 @@ CREATE DATABASE NotesDB;
 
 USE NotesDB;
 
+DROP TABLE Note;
 
-DROP TABLE User;
-
-CREATE TABLE User( 
-    username VARCHAR(10) NOT NULL,
-    password VARCHAR(10) NOT NULL,
-    email VARCHAR(30) NOT NULL,
-    active BIT NOT NULL,
-    firstname VARCHAR(50) NOT NULL,
-    lastname VARCHAR(50) NOT NULL,
-    PRIMARY KEY (username)
+CREATE TABLE Note( 
+    noteid SMALLINT NOT NULL AUTO_INCREMENT, 
+    dateCreated DATE NOT NULL,
+    contents VARCHAR(1000) NOT NULL,
+    PRIMARY KEY (noteid)
 );
-
-INSERT INTO User values('admin', 'password', 'test@test.com', 1, 'Bob', 'Bobberson');
