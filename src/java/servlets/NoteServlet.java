@@ -39,8 +39,9 @@ public class NoteServlet extends HttpServlet {
        if(action!=null && action.equals("edit"))
        {
            String noteId =req.getParameter("id");
+           String date = req.getParameter("date");
            String contents =req.getParameter("contents");
-           
+           System.out.println("noteid:"+noteId);
            if(noteId==null || noteId.isEmpty()) 
            {
                ns.insert(contents);
@@ -70,7 +71,7 @@ public class NoteServlet extends HttpServlet {
        if(action!=null && action.equals("view"))
        {
            
-           System.out.println("selectednoteid"+req.getParameter("selectedNoteId"));
+         //  System.out.println("selectednoteid"+req.getParameter("selectedNoteId"));
            int noteId = Integer.parseInt(req.getParameter("selectedNoteId"));
            Note note = ns.getNote(noteId);
            req.setAttribute("note", note);

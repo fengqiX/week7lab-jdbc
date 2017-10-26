@@ -42,8 +42,8 @@
 
             <h3>Edit User</h3>
             <form action="Note?action=edit" method="POST">
-                Note ID: <input type="text" name="id" value="${note.noteId}" disbaled><br>
-                Date Created: <input type="text" name="date" value="${note.date}" disbaled><br>
+                Note ID: <input type="text" name="id" value="${note.noteId}" readonly><br>
+                Date Created: <input type="text" name="date" value="${note.date}" readonly><br>
                 Contents:<input type="text" name="contents" value="${note.contents}"><br>
                 <input type="submit" value="Save">
             </form>

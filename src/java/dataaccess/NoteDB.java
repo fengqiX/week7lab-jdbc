@@ -47,7 +47,7 @@ public class NoteDB {
 
         try {
             String preparedSQL = "UPDATE Note SET "
-                    + "contents = ?;";
+                    + "contents = ? WHERE noteId="+note.getNoteId()+";";
 
             PreparedStatement ps = connection.prepareStatement(preparedSQL);
 
