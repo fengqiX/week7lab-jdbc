@@ -11,3 +11,5 @@ CREATE TABLE Note(
     contents VARCHAR(1000) NOT NULL,
     PRIMARY KEY (noteid)
 );
+
+InSERT INTO Note VALUES (Default,'2008-7-04','this is the first line');

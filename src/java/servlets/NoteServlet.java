@@ -41,7 +41,10 @@ public class NoteServlet extends HttpServlet {
            String noteId =req.getParameter("id");
            String contents =req.getParameter("contents");
            
-           if(contents==null) {}
+           if(noteId==null || noteId.isEmpty()) 
+           {
+               ns.insert(contents);
+           }
            else
            {
                ns.update(Integer.parseInt(noteId), contents);
@@ -49,6 +52,7 @@ public class NoteServlet extends HttpServlet {
        }
        ArrayList<Note> notesList= (ArrayList<Note>) ns.getAll();
        if(notesList==null) notesList=new ArrayList<Note>();
+       req.setAttribute("notesList", notesList);
        
        getServletContext().getRequestDispatcher(url).forward(req, resp);
     }
@@ -65,6 +69,8 @@ public class NoteServlet extends HttpServlet {
        
        if(action!=null && action.equals("view"))
        {
+           
+           System.out.println("selectednoteid"+req.getParameter("selectedNoteId"));
            int noteId = Integer.parseInt(req.getParameter("selectedNoteId"));
            Note note = ns.getNote(noteId);
            req.setAttribute("note", note);

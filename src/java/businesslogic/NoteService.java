@@ -45,9 +45,12 @@ public class NoteService {
     }
     public int insert(String contents) //insert new
     {
-        Date today = (Date) new java.util.Date();
+        //Date today = (Date) new java.util.Date();
         
-        Note note = new Note(0,today,contents);
+        java.util.Date utilDate = new java.util.Date();
+        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+        
+        Note note = new Note(0,sqlDate,contents);
          
          return ndb.insert(note);
     }

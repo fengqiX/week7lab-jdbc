@@ -19,21 +19,21 @@
             </tr>
             <c:forEach var="note" items="${notesList}">
                 <tr>
-                    <td>${note.id}</td>
+                    <td>${note.noteId}</td>
                     <td>${note.date}</td>
                     <td>${note.contents}</td>
                     <td>
-                        <form action="notes" method="post" >
+                        <form action="Note" method="post" >
                             <input type="submit" value="Delete">
                             <input type="hidden" name="action" value="delete">
-                            <input type="hidden" name="selectedNoteId" value="${note.id}">
+                            <input type="hidden" name="selectedNoteId" value="${note.noteId}">
                         </form>
                     </td>
                     <td>
-                        <form action="notes" method="get">
+                        <form action="Note" method="get">
                             <input type="submit" value="Edit">
                             <input type="hidden" name="action" value="view">
-                            <input type="hidden" name="selectedNoteId" value="${note.id}}">
+                            <input type="hidden" name="selectedNoteId" value="${note.noteId}">
                         </form>
                     </td>
                 </tr>
@@ -41,9 +41,9 @@
         </table>
 
             <h3>Edit User</h3>
-            <form action="notes?action=edit" method="POST">
-                Note ID: <input type="text" name="id" value="${note.id} disbaled"><br>
-                Date Created: <input type="text" name="date" value="${note.date} disbaled"><br>
+            <form action="Note?action=edit" method="POST">
+                Note ID: <input type="text" name="id" value="${note.noteId}" disbaled><br>
+                Date Created: <input type="text" name="date" value="${note.date}" disbaled><br>
                 Contents:<input type="text" name="contents" value="${note.contents}"><br>
                 <input type="submit" value="Save">
             </form>

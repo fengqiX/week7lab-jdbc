@@ -7,6 +7,8 @@ package domainmodel;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -27,7 +29,11 @@ public class Note implements Serializable{
     }
 
     public Note(int noteId, String contents) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.noteId = noteId;
+       // this.date = date;
+        this.contents = contents;
+        
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public void setNoteId(int noteId) {

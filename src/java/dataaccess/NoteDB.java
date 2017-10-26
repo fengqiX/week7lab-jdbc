@@ -25,7 +25,7 @@ public class NoteDB {
     {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
-        String preparedQuery = "INSERT INTO User (dateCreated,contents) VALUES (?,?)";
+        String preparedQuery = "INSERT INTO Note (noteId,dateCreated,contents) VALUES (default,?,?)";
             PreparedStatement ps;
         try {
             ps = connection.prepareStatement(preparedQuery);
@@ -75,11 +75,12 @@ public class NoteDB {
           try {
             ps = connection.prepareStatement("SELECT * FROM note;");
             rs = ps.executeQuery();
-      
+            
             while (rs.next()) {
+                System.out.println("adf"+rs.getInt("noteid")+rs.getDate("dateCreated")+rs.getString("contents"));
                 notesList.add(new Note(rs.getInt("noteid"),rs.getDate("dateCreated"),rs.getString("contents")));
             }
-            pool.freeConnection(connection);
+
             
         } catch (SQLException ex) {
            // Logger.getLogger(UserDB.class.getName()).log(Level.SEVERE, "Cannot read users", ex);
